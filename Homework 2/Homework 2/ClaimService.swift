@@ -23,21 +23,12 @@ class ClaimService {
     
     var claimList: [Claim] = [Claim]()
     var addComplete: Bool?
-//    var viewController : ViewController
-//    static private var cService: ClaimService!
-//
-////    Initialize
-//    init(vc: ViewController) {
-//       viewController = vc
-//    }
-//
-////    Get instance of a Person object
-//    static func getInstance(vc: ViewController) -> ClaimService {
-//        if cService == nil {
-//            cService = ClaimService(vc: vc)
-//        }
-//        return cService
-//    }
+    var viewController : ViewController
+
+//    Initialize
+    init(vc: ViewController) {
+       viewController = vc
+    }
     
     func addClaim(cObj: Claim) {
 //        Implement logic using Async HTTP Client API (POST Method)
@@ -54,16 +45,17 @@ class ClaimService {
 //                Type of resp is Data
                 let respStr = String(bytes: resp, encoding: .utf8)
                 print("The response data sent from the server: \(respStr!)")
-                self.addComplete = true
-//                OperationQueue.main.addOperation {
-//                    self.viewController.addComplete()
-//                }
+                OperationQueue.main.addOperation {
+                    self.viewController.setStatusField(status: "Claim \(cObj.title) was created")
+                    self.viewController.refreshForm(title: "", date: "")
+                }
+                
             } else if let respError = error {
                 print("Server Error: \(respError)")
-                self.addComplete = false
-//                OperationQueue.main.addOperation {
-//                    self.viewController.addIncomplete()
-//                }
+                OperationQueue.main.addOperation {
+                    self.viewController.setStatusField(status: "Claim \(cObj.title) failed to be created")
+                }
+
             }
         }
         task.resume()
