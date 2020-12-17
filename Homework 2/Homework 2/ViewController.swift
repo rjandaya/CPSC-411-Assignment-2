@@ -50,11 +50,6 @@ class ViewController: UIViewController {
         print("Screen generator initialized")
         detailScreenGenerator.generate()
         
-//        2. Prepare data
-//        cService = ClaimService.getInstance(vc: self)
-//        cService.addClaim(cObj: Claim(this_title: "", this_date: ""))
-//        cService.getAll()
-        
 //        3. Set the event handling
         let aBtn = detailScreenGenerator.addBtn
         title_field = detailScreenGenerator.vals[0]

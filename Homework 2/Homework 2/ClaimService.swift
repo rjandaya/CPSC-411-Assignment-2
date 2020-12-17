@@ -22,8 +22,7 @@ struct Claim: Codable {
 class ClaimService {
     
     var claimList: [Claim] = [Claim]()
-    var addComplete: Bool?
-    var viewController : ViewController
+    var viewController: ViewController
 
 //    Initialize
     init(vc: ViewController) {
@@ -55,7 +54,6 @@ class ClaimService {
                 OperationQueue.main.addOperation {
                     self.viewController.setStatusField(status: "Claim \(cObj.title) failed to be created")
                 }
-
             }
         }
         task.resume()

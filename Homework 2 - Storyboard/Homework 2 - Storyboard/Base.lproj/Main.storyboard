@@ -52,31 +52,35 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ad-7A-LOq">
-                                <rect key="frame" x="16" y="300.5" width="49" height="21"/>
+                                <rect key="frame" x="16" y="305.5" width="49" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="&lt;Status Message&gt;" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bAf-JF-ImE">
-                                <rect key="frame" x="112" y="302" width="286" height="18.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebj-Cd-ept">
+                                <rect key="frame" x="112" y="300.5" width="286" height="127.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="bAf-JF-ImE" firstAttribute="centerY" secondItem="3ad-7A-LOq" secondAttribute="centerY" id="3bS-De-CL4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ebj-Cd-ept" secondAttribute="bottom" constant="434" id="2dw-iI-ngo"/>
                             <constraint firstItem="kIf-en-edW" firstAttribute="centerY" secondItem="hsZ-XJ-5iQ" secondAttribute="centerY" id="3uL-qo-1ez"/>
                             <constraint firstItem="3ad-7A-LOq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="4Md-rg-lXQ"/>
+                            <constraint firstItem="ebj-Cd-ept" firstAttribute="top" secondItem="5lz-zk-6iZ" secondAttribute="bottom" constant="16" id="8Od-lz-wpj"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hsZ-XJ-5iQ" secondAttribute="trailing" constant="16" id="ElU-c2-6xZ"/>
-                            <constraint firstItem="3ad-7A-LOq" firstAttribute="top" secondItem="5lz-zk-6iZ" secondAttribute="bottom" constant="16" id="EpT-qk-SDi"/>
+                            <constraint firstItem="3ad-7A-LOq" firstAttribute="top" secondItem="5lz-zk-6iZ" secondAttribute="bottom" constant="21" id="EpT-qk-SDi"/>
                             <constraint firstItem="hsZ-XJ-5iQ" firstAttribute="leading" secondItem="xnq-lD-kOi" secondAttribute="leading" id="MMN-FF-ZrD"/>
                             <constraint firstItem="heL-3z-Itz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="NSt-zc-CzY"/>
                             <constraint firstItem="hsZ-XJ-5iQ" firstAttribute="top" secondItem="xnq-lD-kOi" secondAttribute="bottom" constant="16" id="POH-h1-qCH"/>
                             <constraint firstItem="xnq-lD-kOi" firstAttribute="centerY" secondItem="1ta-S4-wkm" secondAttribute="centerY" id="Vhs-3u-qYQ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bAf-JF-ImE" secondAttribute="trailing" constant="16" id="Vib-hb-5Pj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ebj-Cd-ept" secondAttribute="trailing" constant="16" id="WQa-jY-aPx"/>
                             <constraint firstItem="heL-3z-Itz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="32" id="dcS-sW-Pe7"/>
+                            <constraint firstItem="ebj-Cd-ept" firstAttribute="leading" secondItem="hsZ-XJ-5iQ" secondAttribute="leading" id="eDe-yU-OkC"/>
                             <constraint firstItem="xnq-lD-kOi" firstAttribute="leading" secondItem="1ta-S4-wkm" secondAttribute="trailing" constant="16" id="k1K-e3-Y8F"/>
                             <constraint firstItem="1ta-S4-wkm" firstAttribute="top" secondItem="heL-3z-Itz" secondAttribute="bottom" constant="64" id="kDz-sN-n7Q"/>
                             <constraint firstItem="1ta-S4-wkm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="l7b-j4-a7z"/>
@@ -85,12 +89,11 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="heL-3z-Itz" secondAttribute="trailing" constant="16" id="qrE-dT-lfn"/>
                             <constraint firstItem="5lz-zk-6iZ" firstAttribute="top" secondItem="hsZ-XJ-5iQ" secondAttribute="bottom" constant="16" id="vfb-6J-nGY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5lz-zk-6iZ" secondAttribute="trailing" constant="16" id="y4Q-tz-LpV"/>
-                            <constraint firstItem="bAf-JF-ImE" firstAttribute="leading" secondItem="hsZ-XJ-5iQ" secondAttribute="leading" id="yZB-9h-ZRw"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="date_val" destination="hsZ-XJ-5iQ" id="A4C-Pt-dUG"/>
-                        <outlet property="status_val" destination="bAf-JF-ImE" id="YVB-H0-PHb"/>
+                        <outlet property="status_val" destination="ebj-Cd-ept" id="kp8-6J-MoB"/>
                         <outlet property="title_val" destination="xnq-lD-kOi" id="a7o-Ha-9vd"/>
                     </connections>
                 </viewController>
@@ -100,6 +103,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

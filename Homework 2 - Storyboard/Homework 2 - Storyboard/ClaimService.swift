@@ -22,7 +22,12 @@ struct Claim: Codable {
 class ClaimService {
 
     var claimList: [Claim] = [Claim]()
-    var addComplete: Bool?
+    var viewController: ViewController
+    
+//    Initialize
+    init(vc: ViewController) {
+        viewController = vc
+    }
     
     func addClaim(cObj: Claim) {
 //        Implement logic using Async HTTP client API (POST method)
@@ -39,10 +44,15 @@ class ClaimService {
 //                Type of resp is Data
                 let respStr = String(bytes: resp, encoding: .utf8)
                 print("The response data sent from the server: \(respStr!)")
-                self.addComplete = true
+                OperationQueue.main.addOperation {
+                    self.viewController.setStatusField(status: "Claim \(cObj.title) was created")
+                    self.viewController.refreshForm(title: "", date: "")
+                }
             } else if let respError = error {
                 print("Server Error: \(respError)")
-                self.addComplete = false
+                OperationQueue.main.addOperation {
+                    self.viewController.setStatusField(status: "Claim \(cObj.title) was not created due to server error")
+                }
             }
         }
         task.resume()

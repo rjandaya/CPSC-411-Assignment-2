@@ -9,15 +9,17 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let cService = ClaimService()
     let dateFormatterGet = DateFormatter()
     
     @IBOutlet var title_val: UITextField!
     @IBOutlet var date_val: UITextField!
-    @IBOutlet var status_val: UITextField!
+    @IBOutlet var status_val: UITextView!
     
     @IBAction func add() {
         print("\nAdd button pressed")
+        
+        let cService = ClaimService(vc: self)
+
         dateFormatterGet.dateFormat = "YYYY MM-DD"
         
 //        Test for valid entry
@@ -28,22 +30,21 @@ class ViewController: UIViewController {
             status_val.text = "Invalid date"
         } else {
             cService.addClaim(cObj: Claim(this_title: title_val.text!, this_date: date_val.text!))
-            if cService.addComplete == true {
-                status_val.text! = "Claim \(title_val.text!) created"
-                title_val!.text?.removeAll()
-                date_val!.text?.removeAll()
-            } else if cService.addComplete == false {
-                status_val.text! = "Claim \(title_val.text!) was not created"
-            }
         }
+    }
+    
+    func setStatusField(status: String) {
+        status_val!.text = status
+    }
+    
+    func refreshForm(title: String, date: String) {
+        title_val!.text = title
+        date_val!.text = date
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        cService.addClaim(cObj: Claim(this_title: "", this_date: ""))
 
     }
-
-
 }
 
